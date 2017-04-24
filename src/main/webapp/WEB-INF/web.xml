@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>WelcomePage</servlet-name>
+    <servlet-class>controllers.WelcomePage</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UserPage</servlet-name>
+    <servlet-class>controllers.UserPage</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AdminPage</servlet-name>
+    <servlet-class>controllers.AdminPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WelcomePage</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserPage</servlet-name>
+    <url-pattern>/userPage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminPage</servlet-name>
+    <url-pattern>/adminPage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/assets/*</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>UserFilter</filter-name>
+    <filter-class>controllers.filters.UserFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>AdminFilter</filter-name>
+    <filter-class>controllers.filters.AdminFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>UserFilter</filter-name>
+    <url-pattern>/userPage</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/adminPage</url-pattern>
+  </filter-mapping>
+</web-app>
