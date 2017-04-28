@@ -12,5 +12,6 @@
 </head>
 <body>
 <h1>Hello Admin!!</h1>
+<form action="${pageContext.request.contextPath}/adminPage" method="post" ><button name="logout" type="submit" value="logout">Log out</button></form>
 </body>
 </html>

@@ -6,15 +6,15 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>WelcomePage</servlet-name>
-    <servlet-class>controllers.WelcomePage</servlet-class>
+    <servlet-class>controllers.WelcomePageServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>UserPage</servlet-name>
-    <servlet-class>controllers.UserPage</servlet-class>
+    <servlet-class>controllers.UserPageServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>AdminPage</servlet-name>
-    <servlet-class>controllers.AdminPage</servlet-class>
+    <servlet-class>controllers.AdminPageServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>WelcomePage</servlet-name>
@@ -48,4 +48,11 @@
     <filter-name>AdminFilter</filter-name>
     <url-pattern>/adminPage</url-pattern>
   </filter-mapping>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>WEB-INF/beans.xml</param-value>
+  </context-param>
 </web-app>

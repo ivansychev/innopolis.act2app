@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by ivans on 23/04/2017.
  */
-public class AdminPage extends HttpServlet {
+public class AdminPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPage.jsp");
@@ -19,6 +19,10 @@ public class AdminPage extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        if(req.getParameter("logout").equals("logout"))
+        {
+            req.getSession(false).invalidate();
+            resp.sendRedirect("/app2act/");
+        }
     }
 }

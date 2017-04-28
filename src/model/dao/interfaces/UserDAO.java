@@ -7,4 +7,5 @@ import model.pojo.User;
  */
 public interface UserDAO extends DAO<User, Integer>{
     User findUserByLoginAndPassword(String login, String password);
+    String findUserPassByEmail(String email);
 }

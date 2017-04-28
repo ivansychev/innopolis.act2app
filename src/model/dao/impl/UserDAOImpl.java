@@ -81,6 +81,29 @@ public class UserDAOImpl implements UserDAO {
         return user;
     }
 
+    @Override
+    public String findUserPassByEmail(String email) {
+        String pass = null;
+
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection
+                     .prepareStatement( "SELECT user_password FROM public.users WHERE user_email = ?")) {
+
+            statement.setString(1, email);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                pass = resultSet.getString("user_password");
+            }
+
+            logger.debug("pass " + pass);
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+
+        return pass;
+    }
+
     private User createEntity(ResultSet resultSet) throws SQLException {
         return new User(resultSet.getInt("user_id"),
                 resultSet.getString("user_rights"),

@@ -11,7 +11,8 @@
     <title>User Page</title>
 </head>
 <body>
-<h1>Hello User!!</h1>
+<h1>Hello <%=request.getSession().getAttribute("userName")%></h1>
+<form action="${pageContext.request.contextPath}/userPage" method="post" ><button name="logout" type="submit" value="logout">Log out</button></form>
 </body>
 </html>
 

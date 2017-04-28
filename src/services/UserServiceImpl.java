@@ -12,7 +12,15 @@ public class UserServiceImpl implements UserService {
 
     private static final Logger logger = Logger.getLogger(UserServiceImpl.class);
 
-    private static UserDAO userDAO = new UserDAOImpl();
+    public UserDAO getUserDAO() {
+        return userDAO;
+    }
+
+    public void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
+    private UserDAO userDAO;
 
     public User auth(String login, String password) {
         User user = userDAO.findUserByLoginAndPassword(login, password);
@@ -23,5 +31,10 @@ public class UserServiceImpl implements UserService {
     {
         userDAO.insert(user);
         logger.debug("new user: " + user);
+    }
+
+    @Override
+    public String getUserPass(String email) {
+        return "pass";
     }
 }
