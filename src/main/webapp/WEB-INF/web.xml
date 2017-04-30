@@ -5,6 +5,37 @@
          version="2.4">
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
+    <servlet-name>Main</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Main</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/Main-servlet.xml</param-value>
+  </context-param>
+  <filter>
+    <filter-name>UserFilter</filter-name>
+    <filter-class>controllers.filters.UserFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>AdminFilter</filter-name>
+    <filter-class>controllers.filters.AdminFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>UserFilter</filter-name>
+    <url-pattern>/userPage</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/adminPage</url-pattern>
+  </filter-mapping>
+  <!--<listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>-->
+ <!-- <servlet>
     <servlet-name>WelcomePage</servlet-name>
     <servlet-class>controllers.WelcomePageServlet</servlet-class>
   </servlet>
@@ -27,32 +58,5 @@
   <servlet-mapping>
     <servlet-name>AdminPage</servlet-name>
     <url-pattern>/adminPage</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>/assets/*</url-pattern>
-  </servlet-mapping>
-  <filter>
-    <filter-name>UserFilter</filter-name>
-    <filter-class>controllers.filters.UserFilter</filter-class>
-  </filter>
-  <filter>
-    <filter-name>AdminFilter</filter-name>
-    <filter-class>controllers.filters.AdminFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>UserFilter</filter-name>
-    <url-pattern>/userPage</url-pattern>
-  </filter-mapping>
-  <filter-mapping>
-    <filter-name>AdminFilter</filter-name>
-    <url-pattern>/adminPage</url-pattern>
-  </filter-mapping>
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>WEB-INF/beans.xml</param-value>
-  </context-param>
+  </servlet-mapping>-->
 </web-app>

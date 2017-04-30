@@ -14,7 +14,7 @@ public class UserFilter implements Filter{
     }
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        String userLogin = (String) ((HttpServletRequest) servletRequest).getSession().getAttribute("userLogin");
+        String userLogin = (String) ((HttpServletRequest) servletRequest).getSession().getAttribute("login");
         if(userLogin!=null)
         {
             filterChain.doFilter(servletRequest, servletResponse);

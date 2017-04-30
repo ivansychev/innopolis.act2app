@@ -13,9 +13,9 @@
 <html>
 <head>
     <title>Welcome App2Act!</title>
-    <link rel="stylesheet" href="http://localhost:8088/app2act/assets/css/wStyle.css" >
-    <script src="http://localhost:8088/app2act/assets/js/jquery.min.js"></script>
-    <script src="http://localhost:8088/app2act/assets/js/welc.js"></script>
+    <link rel="stylesheet" href="assets/css/wStyle.css" >
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/welc.js"></script>
 </head>
 <body>
 <div class="form">

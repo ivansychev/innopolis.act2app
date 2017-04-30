@@ -14,7 +14,7 @@ public class AdminFilter implements Filter{
     }
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        String adminLogin = (String) ((HttpServletRequest) servletRequest).getSession().getAttribute("adminLogin");
+        String adminLogin = (String) ((HttpServletRequest) servletRequest).getSession().getAttribute("login");
         if(adminLogin!=null)
         {
             filterChain.doFilter(servletRequest, servletResponse);
